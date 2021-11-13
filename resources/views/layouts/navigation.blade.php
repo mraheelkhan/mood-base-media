@@ -15,8 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('admin.moods.index')" :active="request()->routeIs('admin.moods.index') || request()->routeIs('admin.moods.create')">
+                        {{ __('Moods') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.medias.index')" :active="request()->routeIs('admin.medias.index') || request()->routeIs('admin.medias.create')">
+                        {{ __('Links') }}
                     </x-nav-link>
                 </div>
             </div>

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class UserPlaylist extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id', 'media_id'];
 }

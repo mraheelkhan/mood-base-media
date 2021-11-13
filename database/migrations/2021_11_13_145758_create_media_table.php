@@ -15,6 +15,13 @@ class CreateMediaTable extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('mood_id')->references('id')->on('moods');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->string('url')->nullable();
+            $table->string('type');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

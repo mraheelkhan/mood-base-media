@@ -15,7 +15,7 @@ class UserPlaylistController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

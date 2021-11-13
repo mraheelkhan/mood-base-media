@@ -15,7 +15,7 @@ class MediaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.medias.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class MediaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.medias.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class MediaController extends Controller
      */
     public function edit(Media $media)
     {
-        //
+        return view('admin.medias.edit');
     }
 
     /**

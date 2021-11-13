@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mood;
-use App\Http\Requests\StoreMoodRequest;
-use App\Http\Requests\UpdateMoodRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class MoodController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $moods = Mood::active()->get();
-        return view('admin.moods.index', compact('moods'));
+        //
     }
 
     /**
@@ -24,16 +24,16 @@ class MoodController extends Controller
      */
     public function create()
     {
-        return view('admin.moods.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMoodRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMoodRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -41,10 +41,10 @@ class MoodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Mood  $mood
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Mood $mood)
+    public function show(User $user)
     {
         //
     }
@@ -52,22 +52,22 @@ class MoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Mood  $mood
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mood $mood)
+    public function edit(User $user)
     {
-        return view('admin.moods.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMoodRequest  $request
-     * @param  \App\Models\Mood  $mood
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMoodRequest $request, Mood $mood)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -75,10 +75,10 @@ class MoodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Mood  $mood
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mood $mood)
+    public function destroy(User $user)
     {
         //
     }
