@@ -35,7 +35,8 @@ class MoodController extends Controller
      */
     public function store(StoreMoodRequest $request)
     {
-        //
+        Mood::create($request->validated());
+        return redirect(route('admin.moods.index'))->withSuccess("Mood has been created.");
     }
 
     /**
@@ -57,7 +58,7 @@ class MoodController extends Controller
      */
     public function edit(Mood $mood)
     {
-        return view('admin.moods.edit');
+        return view('admin.moods.edit', compact('mood'));
     }
 
     /**
@@ -69,7 +70,8 @@ class MoodController extends Controller
      */
     public function update(UpdateMoodRequest $request, Mood $mood)
     {
-        //
+        $mood->update($request->validated());
+        return redirect(route('admin.moods.index'))->withSuccess("Mood has been updated.");
     }
 
     /**

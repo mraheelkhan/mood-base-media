@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::prefix('admin')->as('admin.')->group(function(){
+Route::prefix('admin')->as('admin.')->middleware('auth')->group(function(){
     Route::resource('moods', MoodController::class);
     Route::resource('medias', MediaController::class);
     Route::resource('playlists', UserPlaylistController::class);

@@ -13,7 +13,7 @@ class UpdateMoodRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateMoodRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'mood' => 'required|string|max:15',
+            'description' => 'required|string|max:300'
         ];
     }
 }

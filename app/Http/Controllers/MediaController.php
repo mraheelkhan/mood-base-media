@@ -15,6 +15,7 @@ class MediaController extends Controller
      */
     public function index()
     {
+        $medias = Media::active()->get();
         return view('admin.medias.index');
     }
 
