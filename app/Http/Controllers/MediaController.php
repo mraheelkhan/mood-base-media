@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Media;
 use App\Http\Requests\StoreMediaRequest;
 use App\Http\Requests\UpdateMediaRequest;
+use App\Models\Mood;
 
 class MediaController extends Controller
 {
@@ -16,7 +17,7 @@ class MediaController extends Controller
     public function index()
     {
         $medias = Media::active()->get();
-        return view('admin.medias.index');
+        return view('admin.medias.index', compact('medias'));
     }
 
     /**
@@ -26,7 +27,8 @@ class MediaController extends Controller
      */
     public function create()
     {
-        return view('admin.medias.create');
+        $moods = Mood::active()->get();
+        return view('admin.medias.create', compact('moods'));
     }
 
     /**
@@ -37,7 +39,12 @@ class MediaController extends Controller
      */
     public function store(StoreMediaRequest $request)
     {
-        //
+        $request->merge([
+            'user_id' => auth()->user()->id,
+            'type' => 'audio'
+        ]);
+        Media::create($request->only(['mood_id', 'title', 'url', 'user_id', 'type']));
+        return redirect(route('admin.medias.index'))->withSuccess("Link has been created.");
     }
 
     /**
@@ -59,7 +66,8 @@ class MediaController extends Controller
      */
     public function edit(Media $media)
     {
-        return view('admin.medias.edit');
+        $moods = Mood::active()->get();
+        return view('admin.medias.edit', compact('moods', 'media'));
     }
 
     /**
@@ -71,7 +79,8 @@ class MediaController extends Controller
      */
     public function update(UpdateMediaRequest $request, Media $media)
     {
-        //
+        $media->update($request->validated());
+        return redirect(route('admin.medias.index'))->withSuccess("Link has been updated.");
     }
 
     /**
@@ -82,6 +91,7 @@ class MediaController extends Controller
      */
     public function destroy(Media $media)
     {
-        //
+        $media->delete();
+        return redirect(route('admin.medias.index'))->withSuccess("Link has been deleted.");
     }
 }

@@ -82,6 +82,7 @@ class MoodController extends Controller
      */
     public function destroy(Mood $mood)
     {
-        //
+        $mood->delete();
+        return redirect(route('admin.medias.index'))->withSuccess("Mood has been deleted.");
     }
 }
