@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('moods', [\App\Http\Controllers\Api\MoodApiController::class, 'index']);
+Route::get('medias', [\App\Http\Controllers\Api\MoodApiController::class, 'index']);
