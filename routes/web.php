@@ -24,6 +24,7 @@ Route::prefix('admin')->as('admin.')->middleware('auth')->group(function(){
     Route::resource('medias', MediaController::class);
     Route::resource('playlists', UserPlaylistController::class);
 });
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
