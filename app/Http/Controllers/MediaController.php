@@ -55,7 +55,7 @@ class MediaController extends Controller
      */
     public function show(Media $media)
     {
-        //
+        return $media;
     }
 
     /**
