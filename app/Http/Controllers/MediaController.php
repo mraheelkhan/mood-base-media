@@ -94,4 +94,6 @@ class MediaController extends Controller
         $media->delete();
         return redirect(route('admin.medias.index'))->withSuccess("Link has been deleted.");
     }
+
+   
 }

@@ -22,4 +22,8 @@ class Mood extends Model
     {
         return $query->where('is_active',1);
     }
+
+    public function medias(){
+        return $this->hasMany(Media::class);
+    }
 }

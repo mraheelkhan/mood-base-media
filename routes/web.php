@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::prefix('admin')->as('admin.')->middleware('auth')->group(function(){
     Route::resource('moods', MoodController::class);
     Route::resource('medias', MediaController::class);
+    Route::get('tracks/{mood}', [MediaController::class, 'tracks']);
     Route::resource('playlists', UserPlaylistController::class);
 });
 

@@ -29,3 +29,4 @@ Route::post('/auth/logout', [AuthController::class, 'logout']);
 
 
 Route::get('medias', [\App\Http\Controllers\Api\MoodApiController::class, 'index']);
+Route::get('medias/{mood}', [\App\Http\Controllers\Api\MoodApiController::class, 'by_mood']);
