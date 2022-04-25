@@ -21,8 +21,8 @@ class MoodApiController extends Controller
     }
     public function by_mood($mood){
         
-        $MOOD = Mood::where("mood", $mood)->first();
-        $media = Media::active()->where('mood_id', $MOOD->id)->with('mood')->get();
+        $the_mood = Mood::where("mood", $mood)->first();
+        $media = Media::active()->where('mood_id', $the_mood->id)->with('mood')->get();
         return MediaResource::collection($media);
     }
 }
